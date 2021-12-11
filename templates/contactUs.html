@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact Us - Blog
+{% endblock title %}
+
+{% block body %}
+<div class="contact-page">
+    <div class="heading">
+        <h1>Contact Us</h1>
+    </div>
+</div>
+
+<div class="contact-form">
+    <form action="/contact-us/" class="flex fd-column align-center" method="post">
+        {% csrf_token %}
+        <div class="form-content">
+            <label for="name">Name : </label>
+            <input type="text" name="name" id="name" placeholder="Enter Your Name">
+        </div>
+        <div class="form-content">
+            <label for="email">Email : </label>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email">
+        </div>
+        <div class="form-content">
+            <label for="phone">Mobile Number : </label>
+            <input type="text" name="phone" id="phone" placeholder="Enter Your Mobile Number">
+        </div>
+        <div class="form-content">
+            <label for="message">Name : </label>
+            <textarea rows="10" name="message" id="message" placeholder="Enter Your Brief Message"></textarea>
+        </div>
+        <div class="form-btns">
+            <button type="submit" class="btn btn-2 big">Submit</button>
+            <button type="reset" class="btn btn-3 big">Reset</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

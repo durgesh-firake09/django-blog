@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}
+Home - Blog
+{% endblock title %}
+{% load static %}
+{% block body %}
+<div class="homepage">
+    <div class="homepage-logo"><img src="{% static 'img/logo.png' %}" alt=""></div>
+    <div class="heading">
+        <h1>Welcome To This Blog</h1>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis deserunt, pariatur aperiam magnam asperiores
+        nobis? Provident, quibusdam laudantium! Excepturi molestias, quibusdam quia cum velit minus animi deserunt iusto
+        fugiat vero?</p>
+    <div class="buttons">
+        <a href="/posts/" class="btn btn-1">Browse Blog</a>
+    </div>
+</div>
+
+<div class="recent-posts">
+    <h1>Recent Posts</h1>
+    <div class="post-container flex align-center">
+        <div class="post">
+            <h3 class="post-title">First Post</h3>
+            <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod necessitatibus
+                eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
+            <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
+            <p class="posted-by">Posted by - admin</p>
+            <a class="btn btn-3" href="/">Read More</a>
+        </div>
+        <div class="post">
+            <h3 class="post-title">First Post</h3>
+            <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod necessitatibus
+                eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
+            <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
+            <p class="posted-by">Posted by - admin</p>
+            <a class="btn btn-3" href="/">Read More</a>
+
+        </div>
+        <div class="post">
+            <h3 class="post-title">First Post</h3>
+            <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod necessitatibus
+                eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
+            <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
+            <p class="posted-by">Posted by - admin</p>
+            <a class="btn btn-3" href="/">Read More</a>
+
+        </div>
+        <div class="post">
+            <h3 class="post-title">First Post</h3>
+            <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod necessitatibus
+                eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
+            <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
+            <p class="posted-by">Posted by - admin</p>
+            <a class="btn btn-3" href="/">Read More</a>
+
+        </div>
+        <div class="post">
+            <h3 class="post-title">First Post</h3>
+            <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod necessitatibus
+                eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
+            <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
+            <p class="posted-by">Posted by - admin</p>
+            <a class="btn btn-3" href="/">Read More</a>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+{{title}} - Blog
+{% endblock title %}
+
+{% block body %}
+<div class="post-page">
+    <div class="heading">
+        <h1>{{title}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus laudantium laboriosam excepturi! Aliquam repellat eum, voluptatum ipsa aliquid molestias exercitationem nulla facere.
+        </h1>
+    </div>
+    <p>Posted On - {{date}}</p>
+    <p>Posted By - Admin</p>
+</div>
+
+<div class="post-body">
+    {{body}}
+</div>
+{% endblock body %}

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+    {% block css %} {% endblock css %}
+</head>
+
+<body>
+    <header>
+        <nav class="flex fd-row align-center">
+            <div class="logo flex fd-row align-center"><img src="{% static 'img/logo.png' %}" alt=""><span>
+                    <h3>Blog Blog Blog</h3>
+                </span></div>
+            <div class="search-box">
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="query" id="query" placeholder="Enter Keyword Here">
+                    <button class="btn btn-2" type="submit">Search</button>
+                </form>
+            </div>
+            <ul class="nav-list flex fd-row align-center">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+                <li><a href="/about-us/">About Us</a></li>
+                <li><a href="/contact-us/">Contact Us</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+
+
+    {% block body %} {% endblock body %}
+</body>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer flex">
+            <div class="footer-search-box">
+                <h2 style="margin-bottom: 10px;">Search Blog</h2>
+                <div class="search-box">
+                    <form action="/" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="query" id="query" placeholder="Enter Keyword Here">
+                        <button class="btn btn-2" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="user-control flex fd-column">
+                <a href="/user/sign-up" class="btn btn-2" style="margin-bottom: 3px;">Sign Up</a>
+                <a href="/user/login" class="btn btn-2" style="margin-top: 3px;">Login</a>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright-line" style="margin-top: 20px;">
+            <h3>Copyright &copy; 2021 www.something.com All Right Reserved</h3>
+        </div>
+    </div>
+</footer>
+
+</html>
+
+
+
+
+

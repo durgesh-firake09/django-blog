@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+Sign Up - Blog
+{% endblock title %}
+
+{% block body %}
+<div class="sign-up-page">
+    <div class="heading">
+        <h1>Sign Up</h1>
+    </div>
+    <p>Already Registered?</p>
+    <a href="/user/login/" class="btn btn-3">Login</a>
+</div>
+
+<div class="contact-form">
+    <form action="/user/sign-up/" class="flex fd-column align-center" method="post">
+        {% csrf_token %}
+        <div class="form-content">
+            <label for="name">Name : </label>
+            <input type="text" name="name" id="name" required required placeholder="Enter Your Name">
+        </div>
+        <div class="form-content">
+            <label for="email">Email : </label>
+            <input type="email" name="email" id="email" required placeholder="Enter Your Email">
+        </div>
+        <div class="form-content">
+            <label for="phone">Mobile Number : </label>
+            <input type="text" name="phone" id="phone" required placeholder="Enter Your Mobile Number">
+        </div>
+        <div class="form-content">
+            <label for="phone">Date of Birth : </label>
+            <p style="color: blue; font-size: 12px;">For Security Reasons</p>
+            <input type="date" name="phone" id="phone" required placeholder="Enter Your Mobile Number">
+        </div>
+        <div class="form-content">
+            <label for="password1">Set Password : </label>
+            <p style="color: blue; font-size: 12px;">Please Set A Strong Password</p>
+            <input type="password" name="password1" required id="password1" placeholder="Enter Your Password">
+        </div>
+        <div class="form-content">
+            <label for="password2">Confirm Password : </label>
+            <input type="password" name="password2" required id="password2" placeholder="Re-Enter Your Password">
+        </div>
+        <div class="form-btns">
+            <button type="submit" class="btn btn-2 big">Sign Up</button>
+            <button type="reset" class="btn btn-3 big">Reset</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

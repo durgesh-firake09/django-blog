@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+nav {
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-between;
+    padding: 6px 0;
+    background-color: rgb(209, 209, 209);
+
+}
+
+.nav-list {
+    margin-right: 20px;
+    padding: 10px 0;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo img {
+    width: 40px;
+    margin: 0px 25px;
+}
+
+.nav-list li {
+    margin: 0 10px;
+    list-style: none;
+}
+
+.nav-list li a {
+    /* border: 1px solid black; */
+    color: black;
+    padding: 4px 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.nav-list li a:hover {
+    color: rgb(82, 75, 75);
+    text-decoration: underline;
+}
+
+.search-box input {
+    padding: 5px 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: transparent;
+    color: black;
+    outline: none;
+}
+
+
+input:focus {
+    outline: 1px solid black;
+}
+
+
+.homepage, .contact-page, .about-page, .all-blogs-page, .login-page, .sign-up-page, .reset-password-page, .post-page {
+    background-color: rgb(209, 209, 209);
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.login-page p, .sign-up-page p {
+    margin: 25px 0px 10px 0px;
+}
+
+.homepage-logo img {
+    width: 5%;
+}
+
+.heading {
+    width: 80%;
+    margin: auto;
+    font-size: 1.4rem;
+}
+
+.homepage p {
+    max-width: 65%;
+    margin: 10px auto;
+    font-size: 1rem
+}
+
+.buttons {
+    margin: 30px 0;
+}
+
+
+.recent-posts {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    width: 90%;
+    margin: 30px auto;
+}
+
+.post-container {
+    margin: 20px 0;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.post-container-2 {
+    margin: 20px 0;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.post-container-2 .post {
+    margin: 20px 0;
+}
+
+.post {
+    margin: 0 10px;
+    padding: 15px 10px;
+    background-color: rgb(241 236 236);
+    box-shadow: 3px 3px 9px -4px black;
+    border-radius: 10px;
+}
+
+.post-desc {
+    margin: 10px 0;
+}
+
+.posted-by {
+    margin-bottom: 20px;
+}
+
+.posted-on {
+    margin-top: 20px;
+}
+
+
+
+.footer-container {
+    font-family: 'Open Sans', sans-serif;
+
+    padding: 25px 65px;
+    background-color: rgb(209, 209, 209);
+}
+
+.footer-search-box {
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.footer-search-box .search-box form input {
+    width: 50%;
+}
+
+.copyright-line {
+    text-align: center;
+}
+
+.footer {
+    justify-content: space-between;
+}
+
+.contact-form form {
+    font-family: 'Open Sans', sans-serif;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.form-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.form-content input, .form-content textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    padding: 5px 3px;
+    border-radius: 10px;
+}
+
+.form-content label {
+    font-size: 1.2rem;
+}
+
+.form-content input, .form-content textarea {
+    border: 1px solid grey;
+    margin: 5px 0;
+}
+
+.form-content label {
+    margin: 5px 0;
+}
+
+.form-content input:focus, .form-content textarea:focus {
+    outline: 1px solid black;
+}
+
+.form-btns {
+    width: 50%;
+    display: flex;
+    margin: 10px auto;
+    justify-content: space-around;
+}
+
+.big {
+    font-size: 1.5rem !important;
+}
+
+.about-text {
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    padding: 30px 70px;
+}
+
+.about-text ul li {
+    margin: 5px 0;
+}
+
+.profiles {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.profile-container {
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+
+.post-body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px 35px;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:1242px) {
+    .post-container {
+        flex-wrap: wrap;
+    }
+
+    .post-container .post {
+        margin: 20px 0;
+        text-align: start;
+        padding: 10px 30px;
+    }
+}
