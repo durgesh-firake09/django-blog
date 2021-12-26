@@ -167,9 +167,33 @@ def logout(request):
 
 
 def resetPassword(request):
+    userIdentified = False
+    user = None
+    if request.method == "POST":
+
+        if request.POST["reset_now"] == "No":
+            email = request.POST['email']
+            phone = request.POST['phone']
+            dob = request.POST['dob']
+
+            user = SignedUp.objects.filter(email=email).first()
+            if((user.phone == phone) and (str(user.dob) == dob)):
+                userIdentified = True
+        elif request.POST["reset_now"] == "Yes":
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            target_user_email = request.POST['user']
+            target_user = SignedUp.objects.filter(email=target_user_email).first()
+            if password2 == password1:
+                hashed_password = make_password(password1)
+                target_user.password = hashed_password
+                target_user.save()
+
     context = {
         "loggedIn": checkLoggedIn(request),
-        "userName": returnUserName(returnUser(request))
+        "userName": returnUserName(returnUser(request)),
+        "userIdentified": userIdentified,
+        "user": user
     }
     return render(request, "resetPassword.html", context=context)
 
