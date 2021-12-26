@@ -245,8 +245,52 @@ input:focus {
 
 .comment-section {
     font-family: 'Open Sans', sans-serif;
-    margin: 20px 0;
+    margin-top: 50px;
+    margin-bottom: 20px;
     text-align: center;
+}
+
+.post-comment{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f3f3f3;
+    border-radius: 15px;
+    box-shadow: 3px 3px 7px -3px black;
+    
+    width: 60%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.post-comment form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 20px auto;
+}
+
+.post-comment form textarea{
+    margin: 10px 0;
+    background:none;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.post-comment form textarea:focus{
+  border: 1px solid transparent;
+
+  outline: none;
+  box-shadow: 0px 0px 3px 0px black;
+}
+
+.post-comment form button{
+    width: 50%;
+    margin: 10px auto;
 }
 
 .comment-body, .reply-body {

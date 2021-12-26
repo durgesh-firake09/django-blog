@@ -27,6 +27,7 @@ urlpatterns = [
     path("posts/", views.browsePosts, name='posts'),
     path("user/sign-up/", views.signUp, name='signUp'),
     path("user/login/", views.login, name='login'),
+    path("user/logout/", views.logout, name='login'),
     path("user/reset-password/", views.resetPassword, name='resetPassword'),
     path("posts/<int:sno>/", views.viewPost, name='resetPassword'),
 ]

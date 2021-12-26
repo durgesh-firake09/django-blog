@@ -15,34 +15,31 @@
 <div class="post-body">
     {{post.body}}
 </div>
-<!-- <hr>
+<hr>
 <div class="comment-section">
+
+    {% if loggedIn == True %}
     <div class="post-comment">
         <h3>Post a Comment</h3>
-        <form action="/posts/12/" method="post">
+        <form action="/posts/{{post.sno}}/" method="post">
             {% csrf_token %}
+            <input type="hidden" name="type" value="comment">
             <textarea name="comment" id="comment"></textarea>
             <button type="submit" class="btn btn-2">Post Comment</button>
         </form>
     </div>
+    {% endif %}
+
     <h2>Comments</h2>
     <div class="comments-container">
+
+        {% for comment in comments %}
         <div class="comment-body">
-            <h4 class="user-name">Admin</h4>
-            <p style="font-size: 14px;">Posted On - 12/12/2021</p>
-            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, ut quas animi facere quo
-                placeat vero obcaecati qui eligendi! Tenetur?</p>
-                <hr>
-            <div class="reply-section">
-                <h3>Replies</h3>
-                <div class="reply-body">
-                    <h4 class="user-name"></h4>
-                    <p>Posted On - 14/14/2021</p>
-                    <p class="comment reply">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas iste
-                        quibusdam expedita rem qui est magni eaque adipisci, assumenda culpa.</p>
-                </div>
-            </div>
+            <h4 class="user-name">{{comment.user_posted.name}}</h4>
+            <p style="font-size: 14px;">Posted On - {{comment.posted_on}}</p>
+            <p class="comment">{{comment.comment_body}}</p>
         </div>
+        {% endfor %}
     </div>
-</div> -->
+</div>
 {% endblock body %}

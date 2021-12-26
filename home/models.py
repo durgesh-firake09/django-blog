@@ -36,3 +36,14 @@ class SignedUp(models.Model):
 
     def __str__(self) -> str:
         return f"{self.name} - {self.email}"
+
+
+class Comment(models.Model):
+    sno = models.AutoField(primary_key=True)
+    user_posted = models.ForeignKey(SignedUp,on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    comment_body = models.TextField()
+    posted_on = models.DateField()
+
+    def __str__(self) -> str:
+        return f"{self.user_posted.name} - {self.comment_body[0:100]}..."

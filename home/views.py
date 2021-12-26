@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, HttpResponse
-from home.models import Contact, Post, SignedUp
+from home.models import Comment, Contact, Post, SignedUp
 from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
@@ -88,7 +88,7 @@ def browsePosts(request):
         "loggedIn": checkLoggedIn(request),
         "posts": posts,
         "userName": returnUserName(returnUser(request))
-    
+
     }
     return render(request, "allBlogs.html", context=context)
 
@@ -159,6 +159,13 @@ def login(request):
     return render(request, "login.html", context=context)
 
 
+def logout(request):
+    if checkLoggedIn(request):
+        # request.session["loggedIn"] = False
+        request.session.flush()
+    return redirect('/')
+
+
 def resetPassword(request):
     context = {
         "loggedIn": checkLoggedIn(request),
@@ -169,10 +176,16 @@ def resetPassword(request):
 
 def viewPost(request, sno):
     post = Post.objects.filter(sno=sno).first()
+    if request.method == "POST":
+        comment = Comment(post=post, user_posted=returnUser(
+            request), posted_on=datetime.today(), comment_body=request.POST['comment'])
+        comment.save()
+
+    comments = Comment.objects.filter(post=post)
     context = {
         "loggedIn": checkLoggedIn(request),
         "post": post,
-        "userName": returnUserName(returnUser(request))
-
+        "userName": returnUserName(returnUser(request)),
+        "comments": comments
     }
     return render(request, "postTemplate.html", context=context)
