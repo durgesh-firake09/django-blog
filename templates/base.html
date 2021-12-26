@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <nav class="flex fd-row align-center">
+        <nav class="flex align-center">
             <div class="logo flex fd-row align-center"><img src="{% static 'img/logo.png' %}" alt=""><span>
                     <h3>Blog Blog Blog</h3>
                 </span></div>
@@ -25,6 +25,7 @@
                     <button class="btn btn-2" type="submit">Search</button>
                 </form>
             </div>
+            <hr class="divider" style="display: none;">
             <ul class="nav-list flex fd-row align-center">
                 <li><a href="/">Home</a></li>
                 <li><a href="/posts/">Blog</a></li>
@@ -37,36 +38,43 @@
 
 
     {% block body %} {% endblock body %}
-</body>
 
-<footer>
-    <div class="footer-container">
-        <div class="footer flex">
-            <div class="footer-search-box">
-                <h2 style="margin-bottom: 10px;">Search Blog</h2>
-                <div class="search-box">
-                    <form action="/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="query" id="query" placeholder="Enter Keyword Here">
-                        <button class="btn btn-2" type="submit">Search</button>
-                    </form>
+    <footer>
+        <div class="footer-container">
+            <div class="footer flex">
+                <div class="footer-search-box">
+                    <h2 style="margin-bottom: 10px;">Search Blog</h2>
+                    <div class="search-box">
+                        <form action="/" method="post">
+                            {% csrf_token %}
+                            <input type="text" name="query" id="query" placeholder="Enter Keyword Here">
+                            <button class="btn btn-2" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="user-control flex fd-column">
+
+                    {% if loggedIn == True %}
+                    <span style="margin-bottom: 3px;"><h3>Welcome {{userName}}</h3></span>
+                    <a href="/user/logout" class="btn btn-3" style="margin-top: 3px; text-align: center;">Logout</a>
+                    {% else %}
+                    <a href="/user/sign-up" class="btn btn-2" style="margin-bottom: 3px;">Sign Up</a>
+                    <a href="/user/login" class="btn btn-2" style="margin-top: 3px;">Login</a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="user-control flex fd-column">
-                <a href="/user/sign-up" class="btn btn-2" style="margin-bottom: 3px;">Sign Up</a>
-                <a href="/user/login" class="btn btn-2" style="margin-top: 3px;">Login</a>
+            <hr>
+            <div class="copyright-line" style="margin-top: 20px;">
+                <h3>Copyright &copy; 2021 www.something.com All Right Reserved</h3>
             </div>
         </div>
-        <hr>
-        <div class="copyright-line" style="margin-top: 20px;">
-            <h3>Copyright &copy; 2021 www.something.com All Right Reserved</h3>
-        </div>
-    </div>
-</footer>
+    </footer>
+
+
+    {% block js %}
+
+    {% endblock js %}
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
 
 </html>
-
-
-
-
-

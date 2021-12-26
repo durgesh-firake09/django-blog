@@ -15,19 +15,20 @@ Contact Us - Blog
         {% csrf_token %}
         <div class="form-content">
             <label for="name">Name : </label>
-            <input type="text" name="name" id="name" placeholder="Enter Your Name">
+            <input type="text" required maxlength="25" name="name" id="name" placeholder="Enter Your Name">
         </div>
         <div class="form-content">
             <label for="email">Email : </label>
-            <input type="email" name="email" id="email" placeholder="Enter Your Email">
+            <input type="email" required maxlength="50" name="email" id="email" placeholder="Enter Your Email">
         </div>
         <div class="form-content">
             <label for="phone">Mobile Number : </label>
-            <input type="text" name="phone" id="phone" placeholder="Enter Your Mobile Number">
+            <p style="color: blue; font-size: 12px;">Please Enter Mobile Number without country code (+91)</p>
+            <input type="text" required maxlength="10" name="phone" id="phone" placeholder="Enter Your Mobile Number">
         </div>
         <div class="form-content">
             <label for="message">Name : </label>
-            <textarea rows="10" name="message" id="message" placeholder="Enter Your Brief Message"></textarea>
+            <textarea rows="10" required name="message" id="message" placeholder="Enter Your Brief Message"></textarea>
         </div>
         <div class="form-btns">
             <button type="submit" class="btn btn-2 big">Submit</button>

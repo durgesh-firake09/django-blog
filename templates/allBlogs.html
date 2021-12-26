@@ -10,54 +10,15 @@ All Blogs - Blog
     </div>
 </div>
 <div class="post-container-2 flex align-center fd-column">
-    <div class="post">
-        <h3 class="post-title">First Post</h3>
-        <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod
-            necessitatibus
-            eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
-        <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
-        <p class="posted-by">Posted by - admin</p>
-        <a class="btn btn-3" href="/">Read More</a>
-    </div>
-    <div class="post">
-        <h3 class="post-title">First Post</h3>
-        <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod
-            necessitatibus
-            eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
-        <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
-        <p class="posted-by">Posted by - admin</p>
-        <a class="btn btn-3" href="/">Read More</a>
 
-    </div>
+    {% for post in posts %}
     <div class="post">
-        <h3 class="post-title">First Post</h3>
-        <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod
-            necessitatibus
-            eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
-        <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
-        <p class="posted-by">Posted by - admin</p>
-        <a class="btn btn-3" href="/">Read More</a>
-
+        <h3 class="post-title">{{post.title}}</h3>
+        <p class="post-desc">{{post.body}}</p>
+        <p class="posted-on">Posted On - {{post.date}}</p>
+        <p class="posted-by">Posted by - {{post.posted_by}}</p>
+        <a class="btn btn-3" href="/posts/{{post.sno}}/">Read More</a>
     </div>
-    <div class="post">
-        <h3 class="post-title">First Post</h3>
-        <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod
-            necessitatibus
-            eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
-        <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
-        <p class="posted-by">Posted by - admin</p>
-        <a class="btn btn-3" href="/">Read More</a>
-
-    </div>
-    <div class="post">
-        <h3 class="post-title">First Post</h3>
-        <p class="post-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod
-            necessitatibus
-            eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
-        <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
-        <p class="posted-by">Posted by - admin</p>
-        <a class="btn btn-3" href="/">Read More</a>
-
-    </div>
+    {% endfor %}
 </div>
 {% endblock body %}

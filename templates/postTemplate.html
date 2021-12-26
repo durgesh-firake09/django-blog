@@ -1,19 +1,48 @@
 {% extends 'base.html' %}
 {% block title %}
-{{title}} - Blog
+{{post.title}} - Blog
 {% endblock title %}
 
 {% block body %}
 <div class="post-page">
     <div class="heading">
-        <h1>{{title}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus laudantium laboriosam excepturi! Aliquam repellat eum, voluptatum ipsa aliquid molestias exercitationem nulla facere.
-        </h1>
+        <h1>{{post.title}}</h1>
     </div>
-    <p>Posted On - {{date}}</p>
-    <p>Posted By - Admin</p>
+    <p>Posted On - {{post.date}}</p>
+    <p>Posted By - {{post.posted_by}}</p>
 </div>
 
 <div class="post-body">
-    {{body}}
+    {{post.body}}
 </div>
+<!-- <hr>
+<div class="comment-section">
+    <div class="post-comment">
+        <h3>Post a Comment</h3>
+        <form action="/posts/12/" method="post">
+            {% csrf_token %}
+            <textarea name="comment" id="comment"></textarea>
+            <button type="submit" class="btn btn-2">Post Comment</button>
+        </form>
+    </div>
+    <h2>Comments</h2>
+    <div class="comments-container">
+        <div class="comment-body">
+            <h4 class="user-name">Admin</h4>
+            <p style="font-size: 14px;">Posted On - 12/12/2021</p>
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, ut quas animi facere quo
+                placeat vero obcaecati qui eligendi! Tenetur?</p>
+                <hr>
+            <div class="reply-section">
+                <h3>Replies</h3>
+                <div class="reply-body">
+                    <h4 class="user-name"></h4>
+                    <p>Posted On - 14/14/2021</p>
+                    <p class="comment reply">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas iste
+                        quibusdam expedita rem qui est magni eaque adipisci, assumenda culpa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 {% endblock body %}

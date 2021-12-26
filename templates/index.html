@@ -8,6 +8,9 @@ Home - Blog
     <div class="homepage-logo"><img src="{% static 'img/logo.png' %}" alt=""></div>
     <div class="heading">
         <h1>Welcome To This Blog</h1>
+        {% if loggedIn == True %}
+            <h3>User</h3>
+        {% endif %}
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis deserunt, pariatur aperiam magnam asperiores
         nobis? Provident, quibusdam laudantium! Excepturi molestias, quibusdam quia cum velit minus animi deserunt iusto
@@ -26,7 +29,7 @@ Home - Blog
                 eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
             <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
             <p class="posted-by">Posted by - admin</p>
-            <a class="btn btn-3" href="/">Read More</a>
+            <a class="btn btn-3" href="/posts/12/">Read More</a>
         </div>
         <div class="post">
             <h3 class="post-title">First Post</h3>
@@ -34,7 +37,7 @@ Home - Blog
                 eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
             <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
             <p class="posted-by">Posted by - admin</p>
-            <a class="btn btn-3" href="/">Read More</a>
+            <a class="btn btn-3" href="/posts/12/">Read More</a>
 
         </div>
         <div class="post">
@@ -43,7 +46,7 @@ Home - Blog
                 eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
             <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
             <p class="posted-by">Posted by - admin</p>
-            <a class="btn btn-3" href="/">Read More</a>
+            <a class="btn btn-3" href="/posts/12/">Read More</a>
 
         </div>
         <div class="post">
@@ -52,7 +55,7 @@ Home - Blog
                 eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
             <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
             <p class="posted-by">Posted by - admin</p>
-            <a class="btn btn-3" href="/">Read More</a>
+            <a class="btn btn-3" href="/posts/12/">Read More</a>
 
         </div>
         <div class="post">
@@ -61,7 +64,7 @@ Home - Blog
                 eius odit voluptas fugit natus omnis libero magnam quaerat.</p>
             <p class="posted-on">Posted On - 10/12/2021 09:30AM</p>
             <p class="posted-by">Posted by - admin</p>
-            <a class="btn btn-3" href="/">Read More</a>
+            <a class="btn btn-3" href="/posts/12/">Read More</a>
 
         </div>
     </div>

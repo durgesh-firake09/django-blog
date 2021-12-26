@@ -17,20 +17,20 @@ Sign Up - Blog
         {% csrf_token %}
         <div class="form-content">
             <label for="name">Name : </label>
-            <input type="text" name="name" id="name" required required placeholder="Enter Your Name">
+            <input type="text" name="name" id="name" maxlength="25" required placeholder="Enter Your Name">
         </div>
         <div class="form-content">
             <label for="email">Email : </label>
-            <input type="email" name="email" id="email" required placeholder="Enter Your Email">
+            <input type="email" name="email" id="email" maxlength="50" required placeholder="Enter Your Email">
         </div>
         <div class="form-content">
             <label for="phone">Mobile Number : </label>
-            <input type="text" name="phone" id="phone" required placeholder="Enter Your Mobile Number">
+            <input type="text" name="phone" id="phone" maxlength="10" required placeholder="Enter Your Mobile Number">
         </div>
         <div class="form-content">
-            <label for="phone">Date of Birth : </label>
+            <label for="dob">Date of Birth : </label>
             <p style="color: blue; font-size: 12px;">For Security Reasons</p>
-            <input type="date" name="phone" id="phone" required placeholder="Enter Your Mobile Number">
+            <input type="date" name="dob" id="dob" required placeholder="Enter Your Date of Birth">
         </div>
         <div class="form-content">
             <label for="password1">Set Password : </label>

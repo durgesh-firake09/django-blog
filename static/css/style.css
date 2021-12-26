@@ -111,6 +111,7 @@ input:focus {
 }
 
 .post-container-2 {
+    font-family: 'Open Sans', sans-serif;
     margin: 20px 0;
     justify-content: center;
     width: 80%;
@@ -118,7 +119,9 @@ input:focus {
 }
 
 .post-container-2 .post {
-    margin: 20px 0;
+    margin: 20px auto;
+    padding: 15px 30px;
+    width: 100%;
 }
 
 .post {
@@ -240,7 +243,40 @@ input:focus {
     padding: 20px 35px;
 }
 
+.comment-section {
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px 0;
+    text-align: center;
+}
 
+.comment-body, .reply-body {
+    padding: 10px 20px;
+    text-align: start;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.comment-body {
+    background: #f3f3f3;
+    box-shadow: 3px 3px 7px -3px black;
+    border-radius: 10px;
+}
+
+.reply-body {
+    background: #f3f3f3;
+    box-shadow: 3px 3px 8px -5px black;
+    border-radius: 6px;
+}
+
+.comment {
+    margin: 10px 0;
+}
+
+.reply-section {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 20px;
+}
 
 
 
@@ -258,5 +294,34 @@ input:focus {
         margin: 20px 0;
         text-align: start;
         padding: 10px 30px;
+    }
+}
+
+
+@media only screen and (max-width:900px) {
+    nav {
+        flex-direction: column !important;
+    }
+
+    nav div, nav .nav-list {
+        margin: 5px 0;
+    }
+
+    .form-content {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width:520px) {
+    .footer-container {
+        padding: 25px 20px;
+    }
+
+    .big {
+        font-size: 1.2rem !important;
+    }
+
+    .form-content {
+        width: 90%;
     }
 }

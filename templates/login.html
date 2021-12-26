@@ -4,6 +4,13 @@ Login - Blog
 {% endblock title %}
 
 {% block body %}
+
+{% if loggedIn == True %}
+<script>
+    location.pathname = "/";
+</script>
+{% endif %}
+
 <div class="login-page">
     <div class="heading">
         <h1>Login</h1>
@@ -13,7 +20,7 @@ Login - Blog
 </div>
 
 <div class="contact-form">
-    <form action="/user/sign-up/" class="flex fd-column align-center" method="post">
+    <form action="/user/login/" class="flex fd-column align-center" method="post">
         {% csrf_token %}
 
         <div class="form-content">
@@ -27,7 +34,8 @@ Login - Blog
         </div>
 
         <div class="form-content">
-            <label style="font-size: 16px!important;">Forgot Password : <a href="/user/reset-password/">Click Here</a></label>
+            <label style="font-size: 16px!important;">Forgot Password : <a href="/user/reset-password/">Click
+                    Here</a></label>
         </div>
         <div class="form-btns">
             <button type="submit" class="btn btn-2 big">Login</button>
@@ -38,3 +46,11 @@ Login - Blog
     </form>
 </div>
 {% endblock body %}
+
+{% block js %}
+{% if redirected_from == "sign_up_page" %}
+<script>
+    alert("You Are Successfully Signed Up. Now You Can Login To Your Account")
+</script>
+{% endif %}
+{% endblock js %}
