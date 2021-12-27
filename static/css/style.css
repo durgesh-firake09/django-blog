@@ -264,6 +264,8 @@ input:focus {
     margin-bottom: 30px;
 }
 
+
+
 .post-comment form{
     display: flex;
     flex-direction: column;

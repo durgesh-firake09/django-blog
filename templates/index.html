@@ -4,12 +4,14 @@ Home - Blog
 {% endblock title %}
 {% load static %}
 {% block body %}
+
+
 <div class="homepage">
     <div class="homepage-logo"><img src="{% static 'img/logo.png' %}" alt=""></div>
     <div class="heading">
         <h1>Welcome To This Blog</h1>
         {% if loggedIn == True %}
-            <h3>User</h3>
+        <h3>User</h3>
         {% endif %}
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis deserunt, pariatur aperiam magnam asperiores

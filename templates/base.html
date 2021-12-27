@@ -10,6 +10,35 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
     {% block css %} {% endblock css %}
+    <style>
+        .alert {
+            border: 2px transparent;
+            width: 90%;
+            margin: 5px auto;
+            padding: 10px 18px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            transition:0.5s ease-in-out;
+        }
+
+        .success {
+            border: 2px solid #a3ffa3;
+            background: #daffda;
+            color: green;
+        }
+
+        .error {
+            border: 2px solid #ff8989;
+            color: #cf0000;
+            background: #ffd4d4;
+        }
+
+        .info{
+            border: 2px solid rgb(145, 196, 255);
+            color: rgb(0 92 255);
+            background: rgb(219 231 255);
+        }
+    </style>
 </head>
 
 <body>
@@ -36,6 +65,13 @@
         <hr>
     </header>
 
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{message.tags}}" id="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
 
     {% block body %} {% endblock body %}
 
@@ -47,7 +83,7 @@
                     <div class="search-box">
                         <form action="/" method="post">
                             {% csrf_token %}
-                            <input type="text" name="query" id="query" placeholder="Enter Keyword Here">
+                            <input type="text" name="query" id="query2" placeholder="Enter Keyword Here">
                             <button class="btn btn-2" type="submit">Search</button>
                         </form>
                     </div>
@@ -55,7 +91,9 @@
                 <div class="user-control flex fd-column">
 
                     {% if loggedIn == True %}
-                    <span style="margin-bottom: 3px;"><h3>Welcome {{userName}}</h3></span>
+                    <span style="margin-bottom: 3px;">
+                        <h3>Welcome {{userName}}</h3>
+                    </span>
                     <a href="/user/logout" class="btn btn-3" style="margin-top: 3px; text-align: center;">Logout</a>
                     {% else %}
                     <a href="/user/sign-up" class="btn btn-2" style="margin-bottom: 3px;">Sign Up</a>

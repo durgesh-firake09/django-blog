@@ -102,21 +102,32 @@ def signUp(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
+        if password1!=password2:
+            messages.error(request,"Passwords Do Not Match.")
+            return redirect("/user/sign-up/")
+
         if((len(name) > 5) and (len(phone) == 10) and (password1 == password2)):
             checkUserEmail = SignedUp.objects.filter(email=email).first()
             if checkUserEmail == None:
                 if(len(password1) < 5):
                     print("Please Create a Strong Password")
-                    # TODO : Django message framework here
-                    return render(request, "signUp.html")
+                    messages.error(request,"Please Create a Strong Password")
+                    return redirect("/user/sign-up/")
                 else:
                     hashed_password = make_password(password1)
                     user = SignedUp(name=name, email=email, dob=dob,
                                     phone=phone, password=hashed_password)
                     user.save()
-                    return redirect("/user/login/?redirected_from=sign_up_page")
+                    messages.success(request,"Your Account has been cerated Successfully. You Can Now Login.")
+                    return redirect("/user/login/")
             else:
-                print("User Already Exists")
+                messages.error(request,"User Already Exists with This Email ID")
+        if len(name)<=5:
+            messages.error(request,"Name should be more than 5 Characters.")
+            return redirect("/user/sign-up/")
+        if len(phone)<10:
+            messages.error(request,"Phone Number should be of 10 Digits")
+            return redirect("/user/sign-up/")
 
     context = {
         "loggedIn": checkLoggedIn(request),
@@ -138,7 +149,8 @@ def login(request):
         password = request.POST['password']
         user = SignedUp.objects.filter(email=email).first()
         if user == None:
-            print("User Didn't Exist")
+            messages.error(request, "Invalid Credentials")
+            return redirect("/user/login/")
         else:
             password_checked = check_password(
                 password=password, encoded=user.password)
@@ -146,10 +158,12 @@ def login(request):
                 print("Password Matched")
                 request.session["userEmail"] = email
                 request.session["loggedIn"] = True
+                messages.success(request, f"Logged in as {user.name}")
                 return redirect("/")
 
             else:
-                print("Password Don't Matched")
+                messages.error(request,"Invalid Credentials")
+                return redirect("/user/login/")
     context = {
         "redirected_from": redirected_from,
         "loggedIn": checkLoggedIn(request),
@@ -163,6 +177,7 @@ def logout(request):
     if checkLoggedIn(request):
         # request.session["loggedIn"] = False
         request.session.flush()
+        messages.info(request,"Logged Out Successfully")
     return redirect('/')
 
 
@@ -179,15 +194,24 @@ def resetPassword(request):
             user = SignedUp.objects.filter(email=email).first()
             if((user.phone == phone) and (str(user.dob) == dob)):
                 userIdentified = True
+            else:
+                messages.error(request,"User Not Found")
+                return redirect("/user/reset-password/")
         elif request.POST["reset_now"] == "Yes":
             password1 = request.POST['password1']
             password2 = request.POST['password2']
             target_user_email = request.POST['user']
-            target_user = SignedUp.objects.filter(email=target_user_email).first()
+            target_user = SignedUp.objects.filter(
+                email=target_user_email).first()
             if password2 == password1:
                 hashed_password = make_password(password1)
                 target_user.password = hashed_password
                 target_user.save()
+                messages.success(request,"Password Reset Successfully. You Can Now Login.")
+                return redirect('/user/login/')
+            else:
+                messages.error(request,"Password Entered and Confirmed Password do not Match. Please try Again.")
+                return redirect('/user/reset-password/')
 
     context = {
         "loggedIn": checkLoggedIn(request),
