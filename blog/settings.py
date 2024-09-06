@@ -9,14 +9,14 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+# postgresql://durgesh:DPW0DvJwt5jXIRRPldqeRiHmxYYh2JNr@dpg-crdiujl2ng1s73802qfg-a.oregon-postgres.render.com/blog_zsy0
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -130,3 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+
+DATABASES['default'] = dj_database_url.parse("postgresql://durgesh:DPW0DvJwt5jXIRRPldqeRiHmxYYh2JNr@dpg-crdiujl2ng1s73802qfg-a.oregon-postgres.render.com/blog_zsy0")
